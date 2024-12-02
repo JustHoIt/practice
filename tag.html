@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+  <link rel="stylesheet" href="./css/tag.css">
+  <script defer src="./js/tag.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+  <span></span>
+  <!-- 인라인 요소, 본질적으로 아무것도 나타내지 않는, 콘텐츠 영역을 설정하는 용도 => 요소가 수평적으로 쌓임-->
+  <span style="margin: 20px 20px;">Hello</span>
+  <span style="padding: 20px 20px;">World</span>
+  <!-- 글자요소는 가로 세로 너비를 지정할 수 없음, margin => 외부 여백, padding => 내부 여백 (글자 요소는 좌우만 사용할 수 있음) -->
+  <!-- span 태그 안에는 <div> 태그를 사용할 수 없음 
+      사용 불가능 예시<span><div></div><span> 
+      사용 가능 예시<span><sapan></sapan><span> -->
+  <div style="width: 100px; margin: 10px;">Hello</div>
+  <div style="height: 40px; padding: 10px;">World</div>
+  <!-- 대표적인 블록 요소 본질적으로 아무것도 나타내지 않으며, 콘텐츠 영역을 설정하는 용도 => 요소가 수직적으로 쌓임, 부모 요소의 크기만큼 자동으로 늘어남 -->
+  <!-- 블럭 요소는 내부에 블럭요소를 지정가능, 인라인 요소도 마찬가지로 가능하다. -->
+  <h1>제목1</h1>
+  <h2>제목2</h2>
+  <h3>제목3</h3>
+  <h4>제목4</h4>
+  <h5>제목5</h5>
+  <h6>제목6</h6>
+  <!-- 제목을 의미하는 요소(Heading) 숫자가 작을수록 더 중요한 제목을 정의 -->
+  <ul>
+    <li>사과</li>
+    <li>수박</li>
+    <li>딸기</li>
+    <li>오렌지</li>
+  </ul>
+  <!-- <ul>순서가 필요없는 목록의 집합을 의미(Unordered List), <li> 목록 내 각 항목(List Item) -->
+  <a href="https://www.naver.com">Naver</a>
+  <a href="https://www.google.com" target="_blank">Google</a>
+  <!-- 다른/같은 페이지로 이동하는 하이퍼링크를 지정하는 요소. target => 링크 url의 표시(브라우저 탭 위치)-->
+  <p>동해물과 백두산이<br />마르고 닳도록</p>
+  <!-- <br/> 줄바꿈 요소 -->
+  <br />
+  <input type="text" />
+  <!-- 사용자가 데이터를 입력하는 요소, 인라인(글자) 요소,블록(상자) 요소 
+  type => 입력받을 데이터타입,
+  value=""를 통해서 미리 입력된 값(데이터)를 명시할 수 있음, 
+  placeholder="" => 사용자가 입력할 값(데이터)의 힌트를 명시할 수 있음 
+  disabled => 입력 요소 비활성화 -->
+  <br />
+  <label>
+    <input type="checkbox" /> Apple
+  </label>
+  <label>
+    <input type="checkbox" /> Banana
+  </label>
+  <!-- checked => 미리 체크박스 입력 요소에 체크됨 -->
+  <br />
+  <label>
+    <input type="radio" name="fruits" /> Apple
+  </label>
+  <label>
+    <input type="radio" name="fruits" /> banana
+  </label>
+  <table>
+    <tr>
+      <td>A</td>
+      <td>B</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td colspan="2">F</td>
+    </tr>
+  </table>
+  <!-- 표 요소 행(Row)과 열(Coloumn)의 집합, 테이블 요소 -->
+  <span id="abc">동해물</span>과 <span class="red">백두산</span>이 마르고 닳도록 <br />
+  하느님이 보우하사 <span id="abc" class="red">우리나라</span> 만세
+  <br />
+  <div data-fruit-name="apple">사과</div>
+  <div data-fruit-name="banana">바나나</div>
+</body>
+
+</html>

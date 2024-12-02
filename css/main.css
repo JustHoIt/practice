@@ -1,0 +1,153 @@
+/* CSS의 @import 규칙으로 CSS 문서 안에서 또 다른 CSS 문서를 가져와 연결하는 방식, 
+직렬 연결 => import가 해석되기전까지 box.css 적용이 안됨 장점이자 단점(일부러 지연시킬 수 있으나 늦어짐 그래서 링크형식의 병렬 연결 권장) */
+@import url("./box.css");
+
+/* 
+선택자 {
+  속성: 값;
+} 
+*/
+
+/* '*' = 모든 선택자, 기본 */
+/* * {
+    color: red;
+} */
+
+/* 태그 선택자 => HTML 태그 이름인 요소 선택 */
+div {
+    margin: 20px;
+    font-size: 100px;
+    /* background: url("../images/logo.png"); */
+}
+
+li {
+    color: red;
+}
+
+/* 클래스 선택자 => HTML class 속성의 값이 ABC인 요소 선택 */
+.orange {
+    color: orange;
+}
+
+/* 아이디 선택자 => HTML id  속성의 값이 ABC인 요소 선택 */
+#orange {
+    color: skyblue;
+}
+
+/* 일치 선택자 => 선택자 ABC 와 XYZ를 동시에 만족하는 요소 선택 */
+span.orange {
+    color: aliceblue;
+}
+
+/* 자식 선택자 => 선택자 ABC의 자식인 XYZ 요소 선택 */
+ul>.orange {
+    color: aquamarine;
+}
+
+/* 하위(후손) 선택자) => 선택자 ABC의 하위 요소 XYZ 선택 '띄어쓰기'가 선택자의 기호! */
+div .orange {
+    color: blueviolet;
+}
+
+/* 인접 형제 선택자 => 선택자 ABC의 다음 형제 요소 XYZ 하나를 선택 */
+.orange+li {
+    color: black;
+}
+
+/* 일반 형제 선택자 => 선택자의 ABC의 다음 형제 요소 XYZ 모두를 선택 */
+.orange~li {
+    color: red;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    transition: 1s;
+}
+
+/* 가상 클래스 선택자(hover) => 선택자 ABC 요소에 마우스 커서가 올라가 있는 동안 선태, 동작 제어 그러나 js로 제어 */
+.box:hover {
+    width: 300px;
+    background-color: rosybrown;
+
+}
+
+a:hover {
+    color: skyblue;
+}
+
+/* active => 선택자 ABC요소에 마우스를 클릭하고 있는 동안 선택 */
+.box2:active {
+    width: 350px;
+    background-color: aquamarine;
+}
+
+/* 가상 클래스 선택자(FOCUS) */
+input:focus {
+    background-color: orange;
+}
+
+/* 가상 클래스 선택자(FIRST CHILD) => 선택자 ABC가 형제 요소 중 첫째라면 선택 */
+.fruits span:first-child {
+    color: red;
+}
+
+/* 가상 클래스 선택자(NTH CHILD) =>선택자 ABC가 형제 요소 중 (n)번째 라면 선택 2n, 3n, 2n + 1 등을 이용해서 규칙만들기 가능 */
+.fruits *:nth-child(2) {
+    color: aquamarine;
+}
+
+/* 가상 클래스 선택자(NOT) => 선택자 XYZ가 아닌 ABC요소 선택 */
+.fruits *:not(span) {
+    color: blue;
+}
+
+/* 가상 클래스 선택자(BEFORE, after) => 선택자 ABC 요소의 내부 앞에 내용(Content)을 샆입 */
+.box ::before {
+    content: "앞!";
+}
+
+.box ::after {
+    content: "뒤!";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: bisque;
+}
+
+/* 속성 선택자(ATTR) => 속성 ABC을 포함한 요소 선택 */
+[disabled] {
+    color: pink;
+}
+
+/* 속성 선택자(ATTR = Value) => 속성 ABC을 포함하고, 값이 XYZ인 요소 선택 */
+[type="password"] {
+    color: pink;
+}
+
+/* 부모로 부터 상속되는 CSS 속성들 => 모두 글자/문자 관련 속성들(모든 글자/문자 속성은 아님 주의!)
+font-style : 글자 기울기
+font-weight : 글자 두께
+font-size : 글자 크기
+line-height: 줄 높이
+font-family: 폰트(서체)
+color: 글자 색상
+text-align: 정렬
+...
+*/
+
+.parent {
+    width: 300px;
+    height: 200px;
+    background-color: blueviolet;
+}
+.child {
+    width: 100px;
+    height: inherit;
+    background-color: inherit;
+    position: fixed;
+    top: 100px;
+    right: 10px;
+}
+/* inherit을 이용해서 부모의 값을 상속 받을 수 있음 */
